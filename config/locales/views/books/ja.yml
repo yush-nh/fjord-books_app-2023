@@ -1,0 +1,23 @@
+ja:
+  books:
+    index:
+      books: '書籍'
+      title: 'タイトル'
+      memo: 'メモ'
+      author: '著者'
+      picture: '表紙'
+    show:
+    new:
+      title: '本を追加'
+    edit:
+      title: '本を編集'
+    links:
+      index: '書籍一覧に戻る'
+      new: '本を追加'
+      show: 'この本について'
+      edit: '編集'
+      delete: '削除'
+    notice:
+      create: '本を追加しました！'
+      update: '本を編集しました！'
+      destroy: '本を削除しました！'

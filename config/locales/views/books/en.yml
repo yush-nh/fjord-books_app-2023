@@ -1,0 +1,23 @@
+en:
+  books:
+    index:
+      books: 'Books'
+      title: 'Title'
+      memo: 'Memo'
+      author: 'Author'
+      picture: 'Picture'
+    show:
+    new:
+      title: 'New book'
+    edit:
+      title: 'Editing book'
+    links:
+      index: 'Back to books'
+      new: 'Add book'
+      show: 'Show this book'
+      edit: 'Edit this book'
+      delete: 'Destroy this book'
+    notice:
+      create: 'Book was successfully created.'
+      update: 'Book was successfully updated.'
+      destroy: 'Book was successfully destroyed.'
