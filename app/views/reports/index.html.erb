@@ -1,6 +1,15 @@
-<h1>日報一覧</h1>
+<h1><%= t('views.common.title_index', name: i18n_pluralize(Report.model_name.human)) %></h1>
 
-<%= @reports.each do |report| %>
+<% @reports.each do |report| %>
   <p><%= link_to report.title, report %></p>
-  <p><%= report.created_at %> </p>
+  <p>
+    <%= link_to "@#{report.user.name}", user_path(report.user) %>
+    <%= format_datetime(report.created_at) %>
+  </p>
 <% end %>
+
+<%= paginate @reports %>
+
+<nav class="page-nav">
+    <%= link_to t('views.common.new', name: Report.model_name.human.downcase), new_report_path %>
+</nav>
