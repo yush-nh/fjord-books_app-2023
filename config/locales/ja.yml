@@ -120,6 +120,7 @@ ja:
       create: 登録する
       submit: 保存する
       update: 更新する
+      comment: コメントを送信
   number:
     currency:
       format:
@@ -196,6 +197,9 @@ ja:
       validation_error: "%{errors}があるため、この%{name}は保存できませんでした"
       title_show: "%{name}の詳細"
       sign_out: ログアウト
+    comment:
+      placeholder: コメントする
+      no_comment: コメントはまだありません
     pagination:
       first: '« 最初'
       last: '最後 »'
@@ -207,6 +211,7 @@ ja:
       notice_create: "%{name}が作成されました。"
       notice_update: "%{name}が更新されました。"
       notice_destroy: "%{name}が削除されました。"
+      notice_fail: "%{name}に失敗しました"
       notice_uncorrect_user: "他人の%{name}は編集できません"
   layouts:
     application:

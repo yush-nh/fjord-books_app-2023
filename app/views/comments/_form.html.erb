@@ -1,7 +1,7 @@
 <%= form_with(model: [commentable, comment]) do |form| %>
-  <%= form.text_field :content, placeholder: 'コメントする', required: true %>
+  <%= form.text_field :content, placeholder: t('views.comment.placeholder'), required: true %>
 
   <div class="actions">
-    <%= form.submit 'コメントを送信' %>
+    <%= form.submit %>
   </div>
 <% end %>

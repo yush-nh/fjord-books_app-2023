@@ -1,5 +1,5 @@
 <% if comments.any? %>
-  <p>コメント</p>
+  <p><%= t('activerecord.models.comment') %></p>
   <% comments.each do |comment| %>
     <p>
       <%= comment.content %>
@@ -10,10 +10,11 @@
       <% end %>
       <%= format_datetime(comment.created_at) %>
       <% if comment.user == current_user %>
-        <%= button_to '削除', polymorphic_path([commentable, comment]), method: :delete %>
+        <%= button_to t('views.common.destroy', name: Comment.model_name.human),
+                      polymorphic_path([commentable, comment]), method: :delete %>
       <% end %>
     </p>
   <% end %>
 <% else %>
-  <p>コメントはまだありません</p>
+  <p><%= t('views.comment.no_comment') %></p>
 <% end %>

@@ -1,10 +1,4 @@
-<h1><%= @report.title %></h1>
-<p><strong><%= Report.human_attribute_name(:content) %></strong></p>
-<p><%= @report.content %></p>
-<p>
-  <%= link_to "@#{@report.user.name}", user_path(@report.user) %>
-  <%= format_datetime(@report.created_at) %>
-</p>
+<%= render @report %>
 
 <%= render 'comments/comments', commentable: @report, comments: @comments %>
 <%= render 'comments/form', commentable: @report, comment: @comment %>
