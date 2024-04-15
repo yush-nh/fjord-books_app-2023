@@ -6,11 +6,14 @@
   <%= format_datetime(@report.created_at) %>
 </p>
 
+<%= render 'comments/comments', commentable: @report, comments: @comments %>
+<%= render 'comments/form', commentable: @report, comment: @comment %>
+
 <div class="page-nav">
   <% if @report.user_id == current_user.id %>
     <%= link_to t('views.common.edit', name: Report.model_name.human.downcase), edit_report_url(@report) %>
     <%= button_to t('views.common.destroy', name: Report.model_name.human.downcase), @report, method: :delete %>
   <% end %>
 
-  <%= link_to t('views.common.back', name: i18n_pluralize(Report.model_name.human.downcase)), books_path %>
+  <%= link_to t('views.common.back', name: i18n_pluralize(Report.model_name.human.downcase)), reports_path %>
 </div>

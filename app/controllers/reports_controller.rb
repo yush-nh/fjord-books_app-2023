@@ -8,7 +8,10 @@ class ReportsController < ApplicationController
     @reports = Report.includes(:user).order(created_at: :desc, id: :desc).page(params[:page]).per(5)
   end
 
-  def show; end
+  def show
+    @comment = Comment.new
+    @comments = @report.comments
+  end
 
   def new
     @report = Report.new
