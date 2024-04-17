@@ -1,0 +1,10 @@
+<% if report.mentioned_reports.any? %>
+  <strong>この日報は以下の日報から言及されています</strong>
+  <ul>
+    <% report.mentioned_reports.each do |report| %>
+      <li>
+        <%= link_to report.title, report %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

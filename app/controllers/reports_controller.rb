@@ -19,20 +19,26 @@ class ReportsController < ApplicationController
   def edit; end
 
   def create
-    @report = current_user.reports.new(report_params)
+    ActiveRecord::Base.transaction do
+      @report = current_user.reports.new(report_params)
 
-    if @report.save
-      redirect_to @report, notice: t('controllers.common.notice_create', name: Report.model_name.human)
-    else
-      render :new, status: :unprocessable_entity
+      if @report.save && create_mentions(@report)
+        redirect_to @report, notice: t('controllers.common.notice_create', name: Report.model_name.human)
+      else
+        render :new, status: :unprocessable_entity
+      end
     end
   end
 
   def update
-    if @report.update(report_params)
-      redirect_to @report, notice: t('controllers.common.notice_update', name: Report.model_name.human)
-    else
-      render :edit, status: :unprocessable_entity
+    ActiveRecord::Base.transaction do
+      @report.mentioning_relations.map(&:delete)
+
+      if @report.update(report_params) && create_mentions(@report)
+        redirect_to @report, notice: t('controllers.common.notice_update', name: Report.model_name.human)
+      else
+        render :edit, status: :unprocessable_entity
+      end
     end
   end
 
@@ -50,5 +56,25 @@ class ReportsController < ApplicationController
 
   def report_params
     params.require(:report).permit(:title, :content)
+  end
+
+  def get_report_ids(content)
+    urls = URI.extract(content, ['http'])
+    return [] if urls.empty?
+
+    ids = urls.map do |url|
+      match = url.match(%r{http://localhost:3000/reports/(?<id>\d+)})
+      match ? match[:id] : nil
+    end
+    ids.compact.map(&:to_i)
+  end
+
+  def create_mentions(report)
+    report_ids = get_report_ids(report.content)
+
+    report_ids.each do |id|
+      mention = report.mentioning_relations.build(mentioned_report_id: id)
+      mention.save
+    end
   end
 end
