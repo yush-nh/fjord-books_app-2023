@@ -1,7 +1,7 @@
 ja:
   activerecord:
     models:
-      books: 'Books'
+      book: 'Book'
     attributes:
       book:
         title: 'Title'
