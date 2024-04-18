@@ -23,7 +23,7 @@ class Report < ApplicationRecord
     created_at.to_date
   end
 
-  def get_report_ids(content)
+  def extract_report_ids(content)
     urls = URI.extract(content, ['http'])
     return [] if urls.empty?
 
@@ -31,11 +31,11 @@ class Report < ApplicationRecord
       match = url.match(%r{http://localhost:3000/reports/(?<id>\d+)})
       match ? match[:id] : nil
     end
-    ids.compact.map(&:to_i)
+    ids.compact.uniq.map(&:to_i)
   end
 
   def create_mentions
-    report_ids = get_report_ids(content)
+    report_ids = extract_report_ids(content)
 
     report_ids.each do |id|
       mention = mentioning_relations.build(mentioned_report_id: id)
