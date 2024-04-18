@@ -1,5 +1,5 @@
 <% if report.mentioned_reports.any? %>
-  <strong>この日報は以下の日報から言及されています</strong>
+  <strong><%= t('shared.mentions.mention_from') %></strong>
   <ul>
     <% report.mentioned_reports.each do |report| %>
       <li>
