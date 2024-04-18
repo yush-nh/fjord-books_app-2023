@@ -1,5 +1,4 @@
 ja:
-  views:
   notice:
     create: '%{name}を追加しました！'
     update: '%{name}を編集しました！'
