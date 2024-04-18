@@ -194,7 +194,6 @@ ja:
       title_edit: "%{name}の編集"
       error: エラー
       validation_error: "%{errors}があるため、この%{name}は保存できませんでした"
-      logged_in_as: "ログイン中"
       blank_if_no_change: "変更したくない場合は空白のままにしてください"
       pass_minimum: "文字以下にしてください"
       need_password: "変更を確認するには現在のパスワードが必要です"
@@ -206,6 +205,7 @@ ja:
       new_password: "新しいパスワード"
       confirm_password: "確認：もう一度入力してください"
       change_password: "パスワードを更新"
+      logged_in_as: "%{name}でログイン中"
     pagination:
       first: '« 最初'
       last: '最後 »'
@@ -221,7 +221,7 @@ ja:
     books: '本の一覧'
     users: 'ユーザー一覧'
     edit_profile: 'プロフィールを編集'
-    login: 'ログイン'
+    sign_in: ログイン
+    sign_up: アカウント登録
     logout: 'ログアウト'
-    signup: 'サインイン'
     forgot_password: 'パスワードをお忘れですか？'
