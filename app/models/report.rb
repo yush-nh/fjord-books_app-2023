@@ -23,8 +23,8 @@ class Report < ApplicationRecord
     created_at.to_date
   end
 
-  def extract_report_ids(content)
-    urls = URI.extract(content, ['http'])
+  def extract_report_ids(str)
+    urls = URI.extract(str, ['http'])
     return [] if urls.empty?
 
     ids = urls.map do |url|
