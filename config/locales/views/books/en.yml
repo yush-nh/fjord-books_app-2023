@@ -3,7 +3,7 @@ en:
   notice:
     create: '%{name} was successfully created.'
     update: '%{name} was successfully updated.'
-    destroy: '%{name}Book was successfully destroyed.'
+    destroy: '%{name} was successfully destroyed.'
   links:
     index: '%{name}s'
     new: 'Add %{name}'
