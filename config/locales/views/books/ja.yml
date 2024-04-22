@@ -1,0 +1,11 @@
+ja:
+  notice:
+    create: '%{name}を追加しました！'
+    update: '%{name}を編集しました！'
+    destroy: '%{name}を削除しました！'
+  links:
+    index: '%{name}の一覧'
+    new: '%{name}を作成'
+    show: 'この%{name}を見る'
+    edit: '%{name}を編集'
+    destroy: '%{name}を削除'

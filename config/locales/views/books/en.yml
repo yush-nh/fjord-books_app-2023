@@ -1,0 +1,12 @@
+en:
+  views:
+  notice:
+    create: '%{name} was successfully created.'
+    update: '%{name} was successfully updated.'
+    destroy: '%{name} was successfully destroyed.'
+  links:
+    index: '%{name}s'
+    new: 'Add %{name}'
+    show: 'Show this %{name}'
+    edit: 'Edit this %{name}'
+    delete: 'Destroy this %{name}'
