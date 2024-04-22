@@ -194,17 +194,6 @@ ja:
       title_edit: "%{name}の編集"
       error: エラー
       validation_error: "%{errors}があるため、この%{name}は保存できませんでした"
-      blank_if_no_change: "変更したくない場合は空白のままにしてください"
-      pass_minimum: "文字以下にしてください"
-      need_password: "変更を確認するには現在のパスワードが必要です"
-      update: "更新"
-      cancel_account: "アカウントを削除"
-      back: "戻る"
-      reset_password: "再設定用メールを送信"
-      edit_password: "パスワードを変更"
-      new_password: "新しいパスワード"
-      confirm_password: "確認：もう一度入力してください"
-      change_password: "パスワードを更新"
       logged_in_as: "%{name}でログイン中"
     pagination:
       first: '« 最初'
@@ -225,3 +214,4 @@ ja:
     sign_up: アカウント登録
     logout: 'ログアウト'
     forgot_password: 'パスワードをお忘れですか？'
+    back: '戻る'
