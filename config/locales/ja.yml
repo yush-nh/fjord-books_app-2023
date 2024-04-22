@@ -194,6 +194,7 @@ ja:
       title_edit: "%{name}の編集"
       error: エラー
       validation_error: "%{errors}があるため、この%{name}は保存できませんでした"
+      logged_in_as: "%{name}でログイン中"
     pagination:
       first: '« 最初'
       last: '最後 »'
@@ -205,3 +206,12 @@ ja:
       notice_create: "%{name}が作成されました。"
       notice_update: "%{name}が更新されました。"
       notice_destroy: "%{name}が削除されました。"
+  links:
+    books: '本の一覧'
+    users: 'ユーザー一覧'
+    edit_profile: 'プロフィールを編集'
+    sign_in: ログイン
+    sign_up: アカウント登録
+    logout: 'ログアウト'
+    forgot_password: 'パスワードをお忘れですか？'
+    back: '戻る'
