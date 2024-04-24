@@ -3,11 +3,7 @@
   <% comments.each do |comment| %>
     <p>
       <%= comment.content %>
-      <% if comment.user.name %>
-        <%= link_to "@#{comment.user.name}", comment.user %>
-      <% else %>
-        <%= link_to "@#{comment.user.email}", comment.user %>
-      <% end %>
+      <%= link_to "@#{comment.user.name_or_email}", comment.user %>
       <%= I18n.l(comment.created_at, format: :long) %>
       <% if comment.user == current_user %>
         <%= button_to t('views.common.destroy', name: Comment.model_name.human),

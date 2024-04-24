@@ -12,4 +12,8 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   paginates_per 20
+
+  def name_or_email
+    name.presence || email
+  end
 end
