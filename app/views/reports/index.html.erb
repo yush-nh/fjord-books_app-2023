@@ -4,7 +4,7 @@
   <p><%= link_to report.title, report %></p>
   <p>
     <%= link_to "@#{report.user.name}", user_path(report.user) %>
-    <%= format_datetime(report.created_at) %>
+    <%= I18n.l(report.created_at, format: :long) %>
   </p>
 <% end %>
 
