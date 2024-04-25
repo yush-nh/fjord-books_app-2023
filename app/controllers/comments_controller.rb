@@ -4,17 +4,24 @@ class CommentsController < ApplicationController
   def create
     @comment = @commentable.comments.build(comment_params)
     @comment.user = current_user
+
     if @comment.save
       redirect_to @commentable, notice: t('controllers.common.notice_create', name: Comment.model_name.human)
     else
-      redirect_to @commentable, notice: t('controllers.common.notice_fail', name: Comment.model_name.human)
+      @comments = @commentable.reload.comments
+
+      if @commentable.instance_of?(Book)
+        render 'books/show', status: :unprocessable_entity
+      elsif @commentable.instance_of?(Report)
+        render 'reports/show', status: :unprocessable_entity
+      end
     end
   end
 
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_to @commentable, t('controllers.common.notice_destroy', name: Comment.model_name.human)
+    redirect_to @commentable, notice: t('controllers.common.notice_destroy', name: Comment.model_name.human)
   end
 
   private

@@ -6,6 +6,7 @@ class Books::CommentsController < CommentsController
   private
 
   def set_commentable
+    @book = Book.find(params[:book_id]) # render 'books/show'する際に必要
     @commentable = Book.find(params[:book_id])
   end
 end

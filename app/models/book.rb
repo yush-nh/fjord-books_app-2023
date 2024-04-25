@@ -5,4 +5,5 @@ class Book < ApplicationRecord
   has_many :comments, as: :commentable, dependent: :destroy
 
   paginates_per 20
+  validates :title, presence: true
 end

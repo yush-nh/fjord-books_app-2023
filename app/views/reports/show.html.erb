@@ -1,4 +1,4 @@
-<%= render @report %>
+<%= render 'reports/report', report: @report %>
 
 <%= render 'comments/comments', commentable: @report, comments: @comments %>
 <%= render 'comments/form', commentable: @report, comment: @comment %>
