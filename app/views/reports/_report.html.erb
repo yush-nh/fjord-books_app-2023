@@ -2,6 +2,6 @@
 <p><strong><%= Report.human_attribute_name(:content) %></strong></p>
 <p><%= report.content %></p>
 <p>
-  <%= link_to "@#{report.user.name}", user_path(report.user) %>
+  <%= link_to "@#{report.user.name_or_email}", user_path(report.user) %>
   <%= I18n.l(report.created_at, format: :long) %>
 </p>
