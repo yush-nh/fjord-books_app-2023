@@ -3,8 +3,14 @@
 class Reports::CommentsController < CommentsController
   before_action :set_commentable
 
+  private
+
   def set_commentable
-    @report = Report.find(params[:report_id]) # render 'reports/show'する際に必要
     @commentable = Report.find(params[:report_id])
+  end
+
+  def render_commentable
+    @report = @commentable
+    render 'reports/show', status: :unprocessable_entity
   end
 end

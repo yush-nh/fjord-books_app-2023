@@ -6,7 +6,11 @@ class Books::CommentsController < CommentsController
   private
 
   def set_commentable
-    @book = Book.find(params[:book_id]) # render 'books/show'する際に必要
     @commentable = Book.find(params[:book_id])
+  end
+
+  def render_commentable
+    @book = @commentable
+    render 'books/show', status: :unprocessable_entity
   end
 end
