@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-class Book < ApplicationRecord
-  mount_uploader :picture, PictureUploader
+class Report < ApplicationRecord
+  belongs_to :user
   has_many :comments, as: :commentable, dependent: :destroy
 
-  paginates_per 20
   validates :title, presence: true
+  paginates_per 20
 end

@@ -1,0 +1,16 @@
+<% if comments.any? %>
+  <p><%= t('activerecord.models.comment') %></p>
+  <% comments.each do |comment| %>
+    <p>
+      <%= comment.content %>
+      <%= link_to "@#{comment.user.name_or_email}", comment.user %>
+      <%= I18n.l(comment.created_at, format: :long) %>
+      <% if comment.user == current_user %>
+        <%= button_to t('views.common.destroy', name: Comment.model_name.human),
+                      polymorphic_path([commentable, comment]), method: :delete %>
+      <% end %>
+    </p>
+  <% end %>
+<% else %>
+  <p><%= t('views.comment.no_comment') %></p>
+<% end %>
