@@ -1,0 +1,10 @@
+<% if report.mentioned_reports.any? %>
+  <strong><%= t('shared.mentions.mention_from') %></strong>
+  <ul>
+    <% report.mentioned_reports.each do |report| %>
+      <li>
+        <%= link_to report.title, report %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
